@@ -32,6 +32,17 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //  setting content mode to aspect fit for all buttons.
+        //  Suggestion from review
+        updateContentMode(for: slowButton)
+        updateContentMode(for: fastButton)
+        updateContentMode(for: highPitchButton)
+        updateContentMode(for: lowPitchButton)
+        updateContentMode(for: echoButton)
+        updateContentMode(for: reverbButton)
+        updateContentMode(for: stopButton)
+        
         //  As soon as the view is ready, we do all the preprocessing for playing audio.
         //  actual audio will be played when user clicks the button
         setupAudio()
@@ -66,5 +77,10 @@ class PlaySoundsViewController: UIViewController {
     //  Called when user presses on pause sound button.
     @IBAction func pauseSoundButtonAction(_ sender : AnyObject) {
         stopAudio()
+    }
+    
+    private func updateContentMode(for button: UIButton,
+                                   to contentMode: UIViewContentMode = .scaleAspectFit) {
+        button.imageView?.contentMode = contentMode
     }
 }

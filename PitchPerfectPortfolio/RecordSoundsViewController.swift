@@ -23,6 +23,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         // Initially, the stopRecord button should be disabled.
         toggleUIState(stoppedRecording: true)
+        
+        //  setting contentMode to scale aspect fit. (suggestion from the review)
+        startRecordingButton.imageView?.contentMode = .scaleAspectFit
+        stopRecordingButton.imageView?.contentMode = .scaleAspectFit
     }
     
     
